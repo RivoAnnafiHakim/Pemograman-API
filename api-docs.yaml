@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Contact and Address API
+  description: API untuk mengelola kontak dan alamat.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+    description: Server lokal
+
+paths:
+  /contacts:
+    get:
+      summary: Ambil semua kontak
+      responses:
+        '200':
+          description: Daftar kontak
+    post:
+      summary: Tambah kontak baru
+      responses:
+        '201':
+          description: Kontak berhasil ditambahkan
+
+  /contacts/{id}:
+    get:
+      summary: Ambil detail kontak berdasarkan ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detail kontak
+        '404':
+          description: Kontak tidak ditemukan
+
+  /addresses:
+    get:
+      summary: Ambil semua alamat
+      responses:
+        '200':
+          description: Daftar alamat
+    post:
+      summary: Tambah alamat baru
+      responses:
+        '201':
+          description: Alamat berhasil ditambahkan
